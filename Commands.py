@@ -24,7 +24,26 @@ def tophn(links, subtext) -> object:
     
 def tophn_wrapper(articles):
     for day in range (1,5):
-        print ("Title: " + tophn(links, subtext)[day]['Title'] + "\nLink: " + tophn(links, subtext)[day]['Link'] + "\nVotes: "\
-           + str(tophn(links, subtext)[day]['Votes']))
+        return "Title: " + tophn(links, subtext)[day]['Title'] + "\nLink: " + tophn(links, subtext)[day]['Link'] + "\nVotes: "\
+           + str(tophn(links, subtext)[day]['Votes'])
 
-print(tophn_wrapper(0))
+import discord
+
+from discord.ext import commands
+
+client = commands.Bot(command_prefix = "!")
+
+@client.command()
+async def ping(ctx):
+	await ctx.send(f'{round(client.latency * 1000)} ms')
+
+@client.command()
+async def jerome(ctx):
+	await ctx.send('my bad OG 😩')
+
+@client.command()
+async def hackerNews(ctx):
+	await ctx.send(f'Articles over 100 votes will be presented.')
+	await ctx.send(tophn_wrapper(0))
+
+client.run('ODEwMjI3NDk1NTA4NzcwODg2.YCglKA.rJAJwMH1Pkr1NCrbo8JXHdBt6I0')
